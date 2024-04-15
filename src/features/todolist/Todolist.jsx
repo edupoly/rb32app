@@ -22,7 +22,7 @@ function Todolist() {
     },[todos])
     useEffect(()=>{
         console.log("Todolist useEffect with empty dep array")
-        nref.current.focus();
+        
     },[])
     return (
         <div className='p-2 border border-2 border-success'>
