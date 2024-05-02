@@ -17,12 +17,13 @@ function Header() {
                     <li class="nav-item">
                         <Link class="nav-link" to="/posts">Posts</Link>
                     </li>
+                    <li class="nav-item">
+                        <Link class="nav-link" to="/products">Products</Link>
+                    </li>
                 </ul>
             </div>
         </nav>
-        <main className='container'>
-            <Outlet></Outlet>
-        </main>
+        
     </div>
   )
 }

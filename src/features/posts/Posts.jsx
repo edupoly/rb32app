@@ -4,7 +4,10 @@ import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 
 function Posts() {
-    var {isLoading,data:posts}=useGetAllPostssQuery();
+    var {isLoading,data}=useGetAllPostssQuery();
+    useEffect(()=>{
+        console.log(data)
+    },[isLoading])
     var [getPostsFn]=useLazyGetAllPostssQuery();
     var [addPostFn]=useAddNewPostMutation()
     var [delPostFn] = useDeletePostMutation();
@@ -31,7 +34,7 @@ function Posts() {
     }
     useEffect(()=>{
         getPostsFn();
-    })
+    },[])
   return (
     <div className='border border-2 m-2 p-2 border-info'>
         <h1>Posts</h1>
@@ -43,7 +46,7 @@ function Posts() {
             <button>Add Post</button>
         </form>
         <ul>
-            {
+            {/* {
                 posts?.map((post)=>{
                     return <li>
                             {post.title}
@@ -51,7 +54,7 @@ function Posts() {
                             <button onClick={()=>{deletePost(post.id)}}>Delete</button>
                         </li>
                 })
-            }
+            } */}
         </ul>
     </div>
   )

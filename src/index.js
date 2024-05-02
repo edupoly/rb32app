@@ -11,6 +11,7 @@ import { Provider } from 'react-redux';import {
 import Countries from './features/countries/Countries';
 import Posts from './features/posts/Posts';
 import UpdatePost from './features/posts/UpdatePost';
+import Products from './features/products/Products';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path:"/countries",
         element:<Countries></Countries>
+      },
+      {
+        path:"/products",
+        element:<Products></Products>
       },
       {
         path:"/posts",

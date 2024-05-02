@@ -4,7 +4,14 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 // Define a service using a base URL and expected endpoints
 export const postsApi = createApi({
   reducerPath: 'postsApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:4000/posts/' }),
+  baseQuery: fetchBaseQuery({ 
+    baseUrl: 'http://localhost:4000/posts/',
+    prepareHeaders:(headers)=>{
+      console.log("HI prepheaders")
+      headers.set("token",window.localStorage.getItem('token'))
+      return headers
+    }
+  }),
   endpoints: (builder) => ({
     getAllPostss: builder.query({
       query: () => ``,
