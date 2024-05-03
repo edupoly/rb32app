@@ -36,7 +36,7 @@ function Login() {
                 <div className='w-25 text-center'>
                     <form onSubmit={loginForm.handleSubmit}>
                         <input type="text" placeholder='User Name' className='form-control m-2' {...loginForm.getFieldProps('username')}/>
-                        <input type="text" placeholder='Password' className='form-control m-2'  {...loginForm.getFieldProps('password')}/>
+                        <input type="password" placeholder='Password' className='form-control m-2'  {...loginForm.getFieldProps('password')}/>
                         <button className='form-control btn btn-success m-2'>Login</button>
                     </form>
                 </div>

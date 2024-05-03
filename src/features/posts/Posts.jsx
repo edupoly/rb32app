@@ -46,15 +46,15 @@ function Posts() {
             <button>Add Post</button>
         </form>
         <ul>
-            {/* {
-                posts?.map((post)=>{
+            {
+                !isLoading && data?.map((post)=>{
                     return <li>
                             {post.title}
                             <button onClick={()=>{editPost(post)}}>Edit</button>
                             <button onClick={()=>{deletePost(post.id)}}>Delete</button>
                         </li>
                 })
-            } */}
+            }
         </ul>
     </div>
   )

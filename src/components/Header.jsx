@@ -1,7 +1,10 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { Link, Outlet } from 'react-router-dom'
+import { logout } from '../features/auth/userSlice'
 
 function Header() {
+    var dispatch=useDispatch()
   return (
     <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -9,7 +12,7 @@ function Header() {
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
                         <Link class="nav-link" to="/countries">Countries</Link>
@@ -21,6 +24,7 @@ function Header() {
                         <Link class="nav-link" to="/products">Products</Link>
                     </li>
                 </ul>
+                <button className='btn btn-success' onClick={()=>{dispatch(logout())}}>Logout</button>
             </div>
         </nav>
         
