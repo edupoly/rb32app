@@ -2,12 +2,15 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header';
-import { Outlet } from 'react-router-dom'
+
 import Login from './features/auth/Login';
 import { useSelector } from 'react-redux';
+import ManagerHome from './features/manager/ManagerHome';
+
+import AgentHome from './features/agent/AgentHome';
 
 function App() {
-  var {loginStatus} = useSelector(state=>state.user)
+  var {loginStatus,role} = useSelector(state=>state.user)
   console.log(loginStatus)
   useEffect(()=>{
 
@@ -18,9 +21,12 @@ function App() {
         loginStatus && (
           <>
           <Header></Header>
-            <main className='container'>
-                  <Outlet></Outlet>
-            </main>
+          {
+            role==='manager' && (<ManagerHome></ManagerHome>)
+          }
+          {
+            role==='agent' && (<AgentHome></AgentHome>)
+          }
           </>
         )
       }

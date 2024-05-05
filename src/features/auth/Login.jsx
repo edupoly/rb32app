@@ -17,8 +17,8 @@ function Login() {
         onSubmit:(values)=>{
             loginFn(values).then((res)=>{
                 if(res.data.msg==='loginsuccess'){
-                    window.localStorage.setItem("token",res.data.token)
-                    dispatch(setLoginStatus(true))
+
+                    dispatch(setLoginStatus(res.data))
                 }
             })
         }
